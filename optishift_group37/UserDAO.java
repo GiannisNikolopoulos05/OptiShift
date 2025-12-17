@@ -162,29 +162,7 @@ public class UserDAO {
         }
     }
 
-    // E) Deactivate (soft delete)
-    public void deactivate(String username) throws Exception {
-        DB db = new DB();
-        Connection con = null;
-
-        try {
-            con = db.getConnection();
-
-            String sql = "UPDATE " + TABLE + " SET active=0 WHERE username=?";
-            PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, username);
-
-            int rows = stmt.executeUpdate();
-            if (rows == 0) throw new Exception("User not found");
-
-        } catch (Exception e) {
-            throw new Exception("Error deactivating user: " + e.getMessage());
-        } finally {
-            db.close();
-        }
-    }
-
-    // F) Hard delete
+    // F) Delete (υπάρχει ήδη, αλλά στο Delete Profile θα χρησιμοποιούμε id-based deleteEmployeeById)
     public void hardDelete(String username) throws Exception {
         DB db = new DB();
         Connection con = null;
@@ -201,6 +179,67 @@ public class UserDAO {
 
         } catch (Exception e) {
             throw new Exception("Error deleting user: " + e.getMessage());
+        } finally {
+            db.close();
+        }
+    }
+
+    // G) Employees μόνο (για το Delete Profile autocomplete)
+    public List<User> getEmployees() throws Exception {
+        List<User> users = new ArrayList<>();
+        DB db = new DB();
+        Connection con = null;
+
+        try {
+            con = db.getConnection();
+
+            String sql = "SELECT id, firstname, lastname, email, phone, username, password, role, active "
+                       + "FROM " + TABLE + " WHERE role='employee' ORDER BY lastname, firstname";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                users.add(new User(
+                        rs.getInt("id"),
+                        rs.getString("firstname"),
+                        rs.getString("lastname"),
+                        rs.getString("email"),
+                        rs.getString("phone"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("role"),
+                        rs.getBoolean("active")
+                ));
+            }
+
+            return users;
+
+        } catch (Exception e) {
+            throw new Exception("Error getting employees: " + e.getMessage());
+        } finally {
+            db.close();
+        }
+    }
+
+    // H) Delete employee by id (μόνο αν είναι employee)
+    public void deleteEmployeeById(int id) throws Exception {
+        DB db = new DB();
+        Connection con = null;
+
+        try {
+            con = db.getConnection();
+
+            String sql = "DELETE FROM " + TABLE + " WHERE id=? AND role='employee'";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            int rows = stmt.executeUpdate();
+            if (rows == 0) {
+                throw new Exception("Employee not found (or not an employee)");
+            }
+
+        } catch (Exception e) {
+            throw new Exception("Error deleting employee: " + e.getMessage());
         } finally {
             db.close();
         }
