@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Background: ίδιο γκρι mesh με τα υπόλοιπα ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background:
+    linear-gradient(145deg, #5e5e5e, #757575),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 56px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 96px
+    );
+  background-blend-mode: overlay, normal, normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Login card ===== */
+.container {
+  background: linear-gradient(180deg, #d6d6d6, #c9c9c9);
+  padding: 40px 36px 32px;
+  border-radius: 18px;
+  width: min(100%, 520px);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.35),
+    0 0 16px rgba(255, 255, 255, 0.06);
+}
+
+/* ===== Brand title ===== */
+.brand-title {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.brand-title .main {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.brand-title .sub {
+  font-size: 14px;
+  font-weight: 400;
+  color: #f0f0f0;
+  letter-spacing: 0.4px;
+}
+
+/* ===== Form fields ===== */
+.login-form label {
+  display: block;
+  margin: 10px 0 4px;
+  font-size: 14px;
+  color: #3a3a3a;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 8px;
+  border: 1px solid #b5b5b5;
+  background: #f9f9f9;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  outline: none;
+  border-color: #333333;
+  box-shadow: 0 0 6px rgba(70, 70, 70, 0.35);
+  background: #ffffff;
+}
+
+/* ===== Remember me ===== */
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 18px;
+  font-size: 13px;
+  color: #4a4a4a;
+}
+
+.remember input[type="checkbox"] {
+  accent-color: #444444; /* όχι μπλε tick */
+}
+
+/* ===== Primary login button ===== */
+.primary-btn {
+  width: 100%;
+  margin-top: 4px;
+  background: linear-gradient(180deg, #4b4b4b, #2f2f2f);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: background 0.3s, transform 0.1s, box-shadow 0.3s;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(180deg, #3b3b3b, #1f1f1f);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Quick access demo buttons (Manager / Employee) ===== */
+.quick-panels {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.quick-label {
+  font-size: 12px;
+  text-align: center;
+  color: #5a5a5a;
+  margin-bottom: 2px;
+}
+
+.panel-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #4b4b4b;
+  background: #f5f5f5;
+  color: #333333;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.panel-link:hover {
+  background: #3e4957;
+  color: #ffffff;
+  border-color: #3e4957;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
