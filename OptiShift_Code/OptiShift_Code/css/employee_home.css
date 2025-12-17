@@ -1,0 +1,146 @@
+:root {
+  --bg1: #5e5e5e;
+  --bg2: #757575;
+  --card1: #d6d6d6;
+  --card2: #c9c9c9;
+  --ink: #1f1f1f;
+  --ink-2: #3a3a3a;
+  --ink-3: #676767;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Background: calendar mesh (ίδιο στυλ με manager/login) ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--ink);
+  background:
+    linear-gradient(145deg, var(--bg1), var(--bg2)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 56px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 96px
+    );
+  background-blend-mode: overlay, normal, normal;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Topbar & Navbar ===== */
+.topbar {
+  backdrop-filter: saturate(120%) blur(2px);
+  background: rgba(0, 0, 0, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.brand {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  font-size: 18px;
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.nav a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 15.5px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nav a.active {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* ===== Main container & welcome card ===== */
+.container {
+  width: min(100%, 1040px);
+  margin: 56px auto;
+  padding: 0 22px;
+}
+
+.welcome {
+  background: linear-gradient(180deg, var(--card1), var(--card2));
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.26),
+              0 0 22px rgba(255, 255, 255, 0.06);
+  padding: 44px 36px;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.welcome h1 {
+  margin: 0 0 10px;
+  font-size: 34px;
+}
+
+.subtitle {
+  margin: 0 0 18px;
+  color: var(--ink-2);
+  font-size: 16px;
+}
+
+/* ===== Helper list ===== */
+.helper-list {
+  margin: 0 auto;
+  padding-left: 0;
+  list-style: none;
+  max-width: 760px;
+  text-align: left;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.helper-list li {
+  margin: 6px 0;
+}
+
+.helper-list li span {
+  font-weight: 600;
+  color: #2a2a2a;
+}
+
+/* ===== Footnote ===== */
+.footnote {
+  text-align: center;
+  color: #e9e9e9;
+  margin-top: 20px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
