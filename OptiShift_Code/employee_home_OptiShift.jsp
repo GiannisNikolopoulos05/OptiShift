@@ -6,6 +6,10 @@
     return;
   }
 
+  // Πάρε το username από το session (έρχεται από τη ΒΔ μέσω LoginServlet)
+  String uname = (String) session.getAttribute("username");
+  if (uname == null) uname = "";
+
   request.setAttribute("pageTitle", "OptiShift — Employee Home");
   request.setAttribute("activePage", "employee_home");
 %>
@@ -21,7 +25,7 @@
 
   <main class="container">
     <section class="welcome">
-      <h1>Καλωσήρθες, <%= session.getAttribute("firstname") %></h1>
+      <h1>Καλωσήρθες, <%= uname %></h1>
       <p class="subtitle">
         Από εδώ μπορείς να δηλώσεις τη διαθεσιμότητά σου,
         να δεις το εβδομαδιαίο πρόγραμμα βαρδιών σου και να ενημερώνεσαι
@@ -41,3 +45,4 @@
   </main>
 </body>
 </html>
+
