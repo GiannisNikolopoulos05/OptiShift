@@ -21,16 +21,36 @@
   <link rel="stylesheet" href="css/login.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    /* Inline error message όπως στις εικόνες + λίγο κενό από κάτω */
-    .inline-error{
-      margin-top: 8px;
-      margin-bottom: 14px; /* αυτό το κάνει “πιο πάνω” από το κουμπί */
-      font-size: 13px;
-      color: #9b2c2c;
-    }
-  </style>
+<style>
+  .form-error{
+    margin: 6px 0 12px;
+    padding: 10px 12px;
+    background: #fff5f5;
+    color: #b42318;
+
+    /* αφαιρεί το κόκκινο αριστερά */
+    border-left: none;
+
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.3;
+    box-shadow: 0 6px 14px rgba(0,0,0,.12);
+
+    /* κεντρική στοίχιση */
+    text-align: center;
+
+    opacity: 1;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+
+  .form-error.hide{
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+</style>
+
 </head>
+
 <body>
   <div class="container">
     <div class="brand-title">
@@ -55,7 +75,8 @@
       </div>
 
       <% if (errorMsg != null && !errorMsg.trim().isEmpty()) { %>
-        <div class="inline-error" id="loginError"><%= errorMsg %></div>
+        <!-- ΕΔΩ: κάτω από remember me και πάνω από το κουμπί -->
+        <div class="form-error" id="loginErrorBox"><%= errorMsg %></div>
       <% } %>
 
       <button type="submit" class="primary-btn">Σύνδεση</button>
@@ -66,13 +87,17 @@
     (function(){
       var u = document.getElementById("username");
       var p = document.getElementById("password");
-      var err = document.getElementById("loginError");
+      var errBox = document.getElementById("loginErrorBox");
 
       function hideErr(){
-        if (err) err.style.display = "none";
+        if (!errBox) return;
+        errBox.classList.add("hide");
+        setTimeout(function(){
+          if (errBox) errBox.style.display = "none";
+        }, 220);
       }
 
-      // Θέλω να φεύγει ΜΕ ΤΟ ΠΟΥ πατήσεις click ή focus
+      // Αν πάει να πληκτρολογήσει/κλικάρει -> να φύγει αμέσως
       ["focus","click","input","keydown"].forEach(function(ev){
         if (u) u.addEventListener(ev, hideErr);
         if (p) p.addEventListener(ev, hideErr);
@@ -81,6 +106,3 @@
   </script>
 </body>
 </html>
-
-
-
