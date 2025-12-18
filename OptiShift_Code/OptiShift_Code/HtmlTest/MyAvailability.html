@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Availability – OptiShift</title>
+
+  <link rel="stylesheet" href="MyAvailability.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ======== NAVBAR ======== -->
+  <header class="topbar">
+    <div class="brand">OptiShift</div>
+
+    <nav class="nav" aria-label="Κύρια Πλοήγηση">
+      <a href="employee_home.html">Home</a>
+      <a href="MyAvailability.html" class="active">My Availability</a>
+      <a href="#">Schedule</a>
+      <a href="#">Notifications</a>
+    </nav>
+  </header>
+
+  <!-- ======== MAIN CONTENT ======== -->
+  <main class="container">
+    <section class="welcome">
+      <h1>My Availability</h1>
+      <p class="subtitle">
+        Δήλωσε για κάθε ημέρα της εβδομάδας αν μπορείς να δουλέψεις, αν προτιμάς
+        να δουλέψεις ή αν θα ήθελες ρεπό. Στη συνέχεια πάτησε «Submit Preferences».
+      </p>
+
+      <form class="availability-form" action="#" method="post">
+        <div class="week-grid">
+          <!-- Δευτέρα -->
+          <div class="day-row">
+            <div class="day-label">Δευτέρα</div>
+            <div class="day-options">
+              <label>
+                <input type="radio" name="monday" value="can" required>
+                Μπορώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="monday" value="prefer">
+                Προτιμώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="monday" value="off">
+                Θέλω ρεπό
+              </label>
+            </div>
+          </div>
+
+          <!-- Τρίτη -->
+          <div class="day-row">
+            <div class="day-label">Τρίτη</div>
+            <div class="day-options">
+              <label>
+                <input type="radio" name="tuesday" value="can" required>
+                Μπορώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="tuesday" value="prefer">
+                Προτιμώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="tuesday" value="off">
+                Θέλω ρεπό
+              </label>
+            </div>
+          </div>
+
+          <!-- Τετάρτη -->
+          <div class="day-row">
+            <div class="day-label">Τετάρτη</div>
+            <div class="day-options">
+              <label>
+                <input type="radio" name="wednesday" value="can" required>
+                Μπορώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="wednesday" value="prefer">
+                Προτιμώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="wednesday" value="off">
+                Θέλω ρεπό
+              </label>
+            </div>
+          </div>
+
+          <!-- Πέμπτη -->
+          <div class="day-row">
+            <div class="day-label">Πέμπτη</div>
+            <div class="day-options">
+              <label>
+                <input type="radio" name="thursday" value="can" required>
+                Μπορώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="thursday" value="prefer">
+                Προτιμώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="thursday" value="off">
+                Θέλω ρεπό
+              </label>
+            </div>
+          </div>
+
+          <!-- Παρασκευή -->
+          <div class="day-row">
+            <div class="day-label">Παρασκευή</div>
+            <div class="day-options">
+              <label>
+                <input type="radio" name="friday" value="can" required>
+                Μπορώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="friday" value="prefer">
+                Προτιμώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="friday" value="off">
+                Θέλω ρεπό
+              </label>
+            </div>
+          </div>
+
+          <!-- Σάββατο -->
+          <div class="day-row">
+            <div class="day-label">Σάββατο</div>
+            <div class="day-options">
+              <label>
+                <input type="radio" name="saturday" value="can" required>
+                Μπορώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="saturday" value="prefer">
+                Προτιμώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="saturday" value="off">
+                Θέλω ρεπό
+              </label>
+            </div>
+          </div>
+
+          <!-- Κυριακή -->
+          <div class="day-row">
+            <div class="day-label">Κυριακή</div>
+            <div class="day-options">
+              <label>
+                <input type="radio" name="sunday" value="can" required>
+                Μπορώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="sunday" value="prefer">
+                Προτιμώ να δουλέψω
+              </label>
+              <label>
+                <input type="radio" name="sunday" value="off">
+                Θέλω ρεπό
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-block">
+          <label for="notes">Σχόλια / ειδικές προτιμήσεις (προαιρετικό)</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="π.χ. Προτιμώ απογευματινές βάρδιες Τετάρτη–Παρασκευή."></textarea>
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" class="submit-btn">Submit Preferences</button>
+          <a href="employee_home.html" class="back-btn">Cancel</a>
+        </div>
+      </form>
+    </section>
+
+    <section class="footnote">
+      AI Scheduling System · Employee Availability · OptiShift
+    </section>
+  </main>
+</body>
+</html>
